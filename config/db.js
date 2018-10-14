@@ -1,11 +1,12 @@
 var mysql = require("mysql");
-var config = require(".config")
+var config = require("./config.js")
+console.log(`${config}`)
 var pool = mysql.createPool({
-    host: `${config.mysql.host}`,
-    user: `${config.mysql.user}`,
-    password: `${config.mysql.password}`,
-    database: `${config.mysql.database}`,
-    charset:`${config.mysql.charset}`,
+    host: config.host,
+    user: config.user,
+    password: config.password,
+    database: config.database,
+    charset: config.charset,
 });
 
 function query(sql,callback){
