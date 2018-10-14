@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<p>查询</p>
+<form action="/mysql/search" method="post">
+    username<input type="text" name="username" value="<%= datas.username %>"><br>
+    title<input type="text" name="title" value="<%= datas.title %>"><br>
+    <input type="submit" value="查询">
+</form>
+<span>增加</span>
+<form action="/mysql/add" method="post">
+    username<input type="text" name="username" value="<%= datas.username %>"><br>
+    title<input type="text" name="title" value="<%= datas.title %>"><br>
+    content<input type="text" name="content" value="<%= datas.content %>"><br>
+    <input type="submit" value="添加">
+</form>
+<table>
+    <tr>
+        <th>编号</th>
+        <th>username</th>
+        <th>title</th>
+        <th>content</th>
+        <th>creat_time</th>
+        <th>location</th>
+    </tr>
+    <% for(var i = 0; i < datas.length; i++) {%>
+        <tr>
+            <td><%= datas[i].id %></td>
+            <td><%= datas[i].username %></td>
+            <td><%= datas[i].title %></td>
+            <td><%= datas[i].content %></td>
+            <td><%= datas[i].location %></td>
+            <td><%= moment(datas[i].creat_time).format("YYYY-MM-DD HH:mm:ss") %></td>
+            <td><a href="/mysql/del/<%= datas[i].id %>">删除</a></td>
+            <td><a href="/mysql/toUpdate/<%= datas[i].id %>">修改</a></td>
+        </tr>
+    <% } %>
+</table>
+</body>
+</html>
