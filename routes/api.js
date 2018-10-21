@@ -17,7 +17,7 @@ router.get("/", function (req, res, next) {
     }
     if (req.query.key) {
         var key = req.query.key
-        sql = "select * from memoirs where INSTR(title,'" + key + "')>0 or INSTR(location,'" + key + "')  or INSTR(content,'" + key + "')>0 ORDER by creat_time DESC limit " + pos + "," + num
+        sql = "select * from memoirs where INSTR(title,'" + key + "')>0 or INSTR(location,'" + key + "')>0  or INSTR(content,'" + key + "')>0 ORDER by creat_time DESC limit " + pos + "," + num
     } else {
         sql = "select * from memoirs ORDER by creat_time DESC limit " + pos + "," + num
     }
