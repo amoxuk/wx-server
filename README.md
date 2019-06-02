@@ -48,17 +48,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 ```bat
 set DEBUG=* & npm start
 ```
-<<<<<<< HEAD
-# 查看运行
-访问 `http://127.0.0.1:9000/api` 查看查询结果
-
-# 服务器端启动
-##安装forever
-直接启动会导致退出命令行时，启动程序也退出。安装forever可以持续运行。
-`npm install forever`
-## 启动运行
-`forever start bin/www`
-=======
 ## 查看运行
 访问 `http://127.0.0.1:9000/api` 查看查询结果
 
@@ -69,4 +58,3 @@ forever list
 forever stop 10000
 forever start bin/www
 ```
->>>>>>> 增加小程序连接提醒
