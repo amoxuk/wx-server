@@ -1,14 +1,14 @@
 # wx-server
 wxapp node server
 wx-server 是一个使用`nodejs`作为小程序后台的服务应用，项目中使用了mysql，对服务器数据进行增删改查。
-# start
+## start
 下载项目 
 ```bat
 git clone git@github.com:amoxuk/wx-server.git
 ```
-# 执行安装
+## 执行安装
 `npm install`
-# 配置
+## 配置
 1. 在config下新建config.js
 2. 新建数据库
 ```sql
@@ -44,10 +44,11 @@ SET FOREIGN_KEY_CHECKS = 1;
     module.exports = mysql;
     ```
     
-# 启动运行
+## 启动运行
 ```bat
 set DEBUG=* & npm start
 ```
+<<<<<<< HEAD
 # 查看运行
 访问 `http://127.0.0.1:9000/api` 查看查询结果
 
@@ -57,3 +58,15 @@ set DEBUG=* & npm start
 `npm install forever`
 ## 启动运行
 `forever start bin/www`
+=======
+## 查看运行
+访问 `http://127.0.0.1:9000/api` 查看查询结果
+
+## 部署
+修改bin/www文件中port为80或者443
+```shell
+forever list
+forever stop 10000
+forever start bin/www
+```
+>>>>>>> 增加小程序连接提醒

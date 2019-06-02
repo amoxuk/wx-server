@@ -13,5 +13,18 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "mysql": "~2.16.0"
-  }
+  },
+  "description": "wxapp node server\r wx-server 是一个使用`nodejs`作为小程序后台的服务应用，项目中使用了mysql，对服务器数据进行增删改查。\r ## start\r 下载项目 \r ```bat\r git clone git@github.com:amoxuk/wx-server.git\r ```\r ## 执行安装\r `npm install`\r ## 配置\r 1. 在config下新建config.js\r 2. 新建数据库\r ```sql\r SET NAMES utf8mb4;\r SET FOREIGN_KEY_CHECKS = 0;",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoxuk/wx-server.git"
+  },
+  "author": "amoxuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amoxuk/wx-server/issues"
+  },
+  "homepage": "https://github.com/amoxuk/wx-server#readme"
 }

@@ -46,6 +46,7 @@ router.get("/", function (req, res, next) {
         pos = req.query.pos
         num = req.query.num
     }
+    
     if (req.query.key) {
         var key = req.query.key
         sql = "SELECT memorial.id,memorial.`user`,memorial.title,memorial.memory_time,memorial.remark,memorial.creat_time,memorial.modify_time,DATEDIFF(now(),memorial.memory_time) AS to_annivesary,IF (DATEDIFF(CONCAT(YEAR (NOW()),'-',MONTH (memorial.memory_time),'-',DAY (memorial.memory_time)),now())>= 0,DATEDIFF(CONCAT(YEAR (NOW()),'-',MONTH (memorial.memory_time),'-',DAY (memorial.memory_time)),now()),DATEDIFF(CONCAT(YEAR (DATE_ADD(NOW(),INTERVAL 1 YEAR)),'-',MONTH (memorial.memory_time),'-',DAY (memorial.memory_time)),now())) AS days,IF (DATEDIFF(CONCAT(YEAR (NOW()),'-',MONTH (memorial.memory_time),'-',DAY (memorial.memory_time)),now())>= 0,YEAR (NOW())-YEAR (memorial.memory_time),YEAR (NOW())-YEAR (DATE_ADD(NOW(),INTERVAL 1 YEAR))) AS annivesary FROM memorial WHERE INSTR(title,'" + key + "')> 0 OR INSTR(memory_time,'" + key + "')> 0 ORDER BY days,annivesary ASC LIMIT " + pos + "," + num
@@ -119,7 +120,7 @@ router.post("/", function (req, res, next) {
  */
 router.delete("/:id", function (req, res) {
     var id = req.params.id;
-    db.query("delete from memoirs where id = " + id, function (err, rows) {
+    db.query("delete from memorial where id = " + id, function (err, rows) {
         if (err) {
             res.send({ code: 0, msg: err });
         } else {

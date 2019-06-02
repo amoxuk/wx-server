@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var mysqlRouter = require('./routes/mysql');
 var apiRouter = require('./routes/api');
 var dayRouter = require('./routes/day');
+var wechatRouter = require('./routes/wechat');
 
 var app = express();
 app.locals.moment = moment;
@@ -29,6 +30,7 @@ app.use('/users', usersRouter);
 app.use('/mysql', mysqlRouter);
 app.use('/api', apiRouter);
 app.use('/day', dayRouter);
+app.use('/wechat', wechatRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
