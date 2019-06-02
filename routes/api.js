@@ -139,7 +139,7 @@ router.post("/search", function (req, res, next) {
         }
     });
 })
-router.get('/info',function (req,res,next) {
+router.get('/info', function (req, res, next) {
     // signature	微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
     // timestamp	时间戳
     // nonce	随机数
@@ -149,16 +149,18 @@ router.get('/info',function (req,res,next) {
     var timestamp = req.query.timestamp;
     var nonce = req.query.nonce;
     var echostr = req.query.echostr;
-    var arr = Array(TOKEN,timestamp,nonce);
+    var arr = Array(TOKEN, timestamp, nonce);
     arr.sort()
     console.log(arr.join(''))
     var hash = crypto.createHash("RSA-SHA1")
     hash.update(arr.join(''))
     hash = hash.digest('hex')
     console.log(hash)
-    if(hash == signature){
-        res.send(echostr)
-    }else{
+    if (hash == signature) {
+        console.log(echostr)
+
+        res.send(echostr + '')
+    } else {
         res.send('success')
     }
 })
